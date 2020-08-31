@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+
+h1{    font-size: 65px;
+    color: #4d504b;
+    
+   
+    }
+    button{margin: 10px;
+    cursor: pointer;
+    width: 100px;
+ 
+    }
+      
+    </style>
+  </head>
+  <body>
+  <div class="container">
+
+    <div class="row">
+      <div style="margin: auto;" class="display"> <h1 id="starter">00:00:00:00</h1></div>
+    </div>
+
+    <div style="width: 122px; margin: auto;"><button type="button" class="btn btn-primary" id="strtstp" onclick="startstop()" ><b>Start</b></button>
+      <button type="button" class="btn btn-danger" onclick="reset()"><b>Reset</b></button></div>
+  
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script>
+  
+    var status = "stopped";
+  var ID = null;
+  var milSec= 0;
+  var sec= 0;
+  var min= 0;
+  var hr= 0;
+  let dismilSec= 0;
+  let dissec= 0;
+  let dismin= 0;
+  let dishr= 0;
+
+  function hello(){
+  milSec++;
+  if (milSec==100) {
+    milSec=0;
+    sec++
+  }
+  if (sec==60) {
+    sec=0;
+    min++
+  }
+  if (min==60) {
+    min=0;
+    hr++
+  }
+  
+  if (milSec<10) {
+  dismilSec = "0"+milSec.toString();
+}
+else{
+  dismilSec= milSec;
+}
+if (sec<10) {
+  dissec = "0"+sec.toString();
+}
+else{
+  dissec= sec;
+}
+if (min<10) {
+  dismin = "0"+min.toString();
+}
+else{
+  dismin= min;
+}
+if (hr<10) {
+  dishr = "0"+hr.toString();
+}
+else{
+  dishr= hr;
+}
+  $("#starter").html(dishr+":"+dismin+":"+dissec+":"+dismilSec);
+}
+
+ function startstop() {
+   if (status==="stopped") {
+    
+    ID = window.setInterval(hello, 10);
+  $("#strtstp").html("Stop")
+ status="started"
+   }
+else{
+  window.clearInterval(ID);
+  $("#strtstp").html("Start")
+  status="stopped"
+}
+}
+function reset() {
+  window.clearInterval(ID);
+  var milSec= 0;
+  var sec= 0;
+  var min= 0;
+  var hr= 0;
+  $("#starter").html("00:00:00:00");
+  $("#strtstp").html("Start")
+}
+
+  </script>
+  </body>
+</html>
