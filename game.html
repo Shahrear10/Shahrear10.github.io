@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="green.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>SpaceGame!</title>
+   <style>*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow: hidden;
+}
+.gameContainer{
+    background: url(space.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+}
+.green1{
+    background: url(green.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 240px;
+    height: 236px;
+    position: absolute;
+    bottom: 210px;
+    left: 60px;
+}
+.obstacle{
+    background: url(red.png);
+    background-size: cover;
+    width: 240px;
+    height: 99px;
+    position: absolute;
+    bottom: 277px;
+    left: 64vw;
+}
+.obsani{
+    animation:obsani 1.8s linear infinite;
+
+}
+@keyframes obsani{
+    0%{
+        left: 110vw;
+    }
+    100%{
+        left: -10vw;
+    }
+}
+.animateGreen1{
+    animation:green1 0.6s linear;
+
+}
+@keyframes green1{
+    0%{
+        bottom: 210px;
+    }
+    50%{
+        bottom: 460px;
+    }
+    100%{
+        bottom: 210px;
+    }
+}
+.gameOver{
+    visibility: hidden;
+    font-size: 45px;
+    font-weight: bolder;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: seashell;
+    text-align: center;
+    word-spacing: 10px;
+}
+#scoreCont{
+    text-align: center;
+    color: snow;
+    font-weight: bolder;
+    font-size: 20px;
+    
+}
+#resetBtn{
+    display: none;
+    font-weight: bolder;
+    text-decoration: none;
+    color: black;
+    width: 200px;
+    margin: auto;
+    
+}
+.manual{
+    color: whitesmoke;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 410px;
+}</style>
+    
+  </head>
+  <body>
+    <div class="gameContainer">
+        <div class="gameOver">GAME OVER</div>
+        <div class="green1"></div>
+        <div id="scoreCont">Your Score: 0</div><br>
+        <a href="game.html"><button type="button" id="resetBtn" class="btn btn-light">RESET</button></a>
+        <div class="obstacle obsani"></div>
+        <br>
+        <div class="manual">
+            Move Right:▶ <br> Move Left:◀ <br> Jump:▲<br>
+            The game is only supportable for PC.
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <script>score = 0;
+      cross = true;
+      alert("Get ready to save your space-craft!")
+      document.onkeydown= function (e) {
+          console.log("the code id: " , e.keyCode);
+          if (e.keyCode==38) {
+              green1 = document.querySelector('.green1');
+              green1.classList.add('animateGreen1');
+          setTimeout(() => {
+              green1.classList.remove('animateGreen1');
+          }, 700);
+          }
+          if (e.keyCode==39) {
+              green1 = document.querySelector('.green1');
+              green1X = parseInt( window.getComputedStyle(green1,null).getPropertyValue('left'));
+              green1.style.left = (green1X+112) + "px";
+      }
+      if (e.keyCode==37) {
+          green1 = document.querySelector('.green1');
+          green1X = parseInt( window.getComputedStyle(green1,null).getPropertyValue('left'));
+          green1.style.left = (green1X-112) + "px";
+      }
+      }
+      setInterval(() => {
+          green1 = document.querySelector('.green1');
+          gameOver = document.querySelector('.gameOver');
+          obstacle= document.querySelector('.obstacle');
+          reset = document.querySelector('#resetBtn');
+       green1X = parseInt( window.getComputedStyle(green1,null).getPropertyValue('left'));
+       green1Y = parseInt( window.getComputedStyle(green1,null).getPropertyValue('bottom'));
+       obstacleX = parseInt( window.getComputedStyle(obstacle,null).getPropertyValue('left'));
+       obstacleY = parseInt( window.getComputedStyle(obstacle,null).getPropertyValue('bottom'));
+       offSetX = Math.abs(green1X-obstacleX);
+       offSetY = Math.abs(green1Y-obstacleY);
+          console.log(offSetX,offSetY);
+          if (offSetX < 200 && offSetY < 69) {
+          obstacle.classList.remove('obsani');
+          gameOver.style.visibility = 'visible';
+          reset.style.display = 'block';
+      }
+      else if (offSetX < 140 && cross) {
+          score+=1;
+          updateScore(score);
+          cross = false;
+          setTimeout(() => {
+              cross = true;
+          }, 1000)};
+      },100);
+      function updateScore(score) {
+          scoreCont.innerHTML="Your Score : "+score;
+      };</script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
