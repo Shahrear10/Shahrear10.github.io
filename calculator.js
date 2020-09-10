@@ -1,4 +1,4 @@
-let screen = document.getElementById('#screen');
+let screen = document.getElementById('screen');
 let screenValue = ""
 buttons = document.querySelectorAll('button');
 
