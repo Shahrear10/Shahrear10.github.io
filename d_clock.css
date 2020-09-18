@@ -1,0 +1,30 @@
+body{
+    background:#353839;
+}
+.mycradit{
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    display: none;
+}
+.timeClass{
+    display: inline-block;
+    font-weight: bolder;
+    font-size: 60px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+#clock{
+    margin-top: 250px;
+    background: black;
+    color: #17D4FE;
+    text-align: center;
+    border: 1px solid snow;
+    transition: 1s;
+}
+#clock:hover{
+    background:  #00d0ff;
+    color: black;
+    border: 1px solid whitesmoke;
+    transform: scale(1.03);
+}
