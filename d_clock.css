@@ -1,0 +1,23 @@
+body{
+    background:#353839;
+}
+.timeClass{
+    font-weight: bolder;
+    font-size: 70px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#clock{
+    border-radius: 10px;
+    border:2px solid 	#fffafad3;
+    margin-top: 200px;
+    text-align: center;
+    width: auto;
+    background: black;
+    padding: 20px;
+    color: #17D4FE;
+    transition: all 1s;
+}
+#clock:hover{
+    background:  #17D4FE;
+    color: black;
+}
