@@ -22,12 +22,12 @@ body{
     width: 100%;
     height: 100vh;
 }
-.green1{
+.green1{ 
     background: url(green.png);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 240px;
-    height: 236px;
+    width: 237px;
+    height: 161px;
     position: absolute;
     bottom: 210px;
     left: 60px;
@@ -35,15 +35,14 @@ body{
 .obstacle{
     background: url(red.png);
     background-size: cover;
-    width: 240px;
-    height: 99px;
+    width: 220px;
+    height: 96px;
     position: absolute;
-    bottom: 277px;
-    left: 64vw;
+    bottom: 205px;
+    left: 65vw;
 }
 .obsani{
-    animation:obsani 1.8s linear infinite;
-
+    animation:obsani 1.6s linear infinite;
 }
 @keyframes obsani{
     0%{
@@ -54,15 +53,14 @@ body{
     }
 }
 .animateGreen1{
-    animation:green1 0.6s linear;
-
+    animation:green1 0.5s linear;
 }
 @keyframes green1{
     0%{
         bottom: 210px;
     }
     50%{
-        bottom: 460px;
+        bottom: 430px;
     }
     100%{
         bottom: 210px;
@@ -82,7 +80,6 @@ body{
     color: snow;
     font-weight: bolder;
     font-size: 20px;
-    
 }
 #resetBtn{
     display: none;
@@ -106,7 +103,7 @@ body{
         <div class="gameOver">GAME OVER</div>
         <div class="green1"></div>
         <div id="scoreCont">Your Score: 0</div><br>
-        <a href="game.html"><button type="button" id="resetBtn" class="btn btn-light">RESET</button></a>
+        <button type="button" id="resetBtn" class="btn btn-light">RESET</button>
         <div class="obstacle obsani"></div>
         <br>
         <div class="manual">
@@ -117,8 +114,12 @@ body{
 
 
     <!-- Optional JavaScript -->
-    <script>score = 0;
+    <script>
+        audio = new Audio('Mouse-Click-00-c-FesliyanStudios.com.mp3');
+        audiogo = new Audio('Kid_Laugh-Mike_Koenig-1673908713.wav');
+      score = 0;
       cross = true;
+
       alert("Get ready to save your space-craft!")
       document.onkeydown= function (e) {
           console.log("the code id: " , e.keyCode);
@@ -152,22 +153,42 @@ body{
        offSetX = Math.abs(green1X-obstacleX);
        offSetY = Math.abs(green1Y-obstacleY);
           console.log(offSetX,offSetY);
-          if (offSetX < 190 && offSetY < 69) {
+          if (offSetX < 245 && offSetY < 69) {
           obstacle.classList.remove('obsani');
           gameOver.style.visibility = 'visible';
           reset.style.display = 'block';
+          score = 0;
+        //   
+        audiogo.play();
+        setTimeout(() => {
+            audiogo.pause();
+            audio.pause();
+        }, 2400);
       }
-      else if (offSetX < 140 && cross) {
+      else if (offSetX < 145 && cross) {
           score+=1;
           updateScore(score);
           cross = false;
           setTimeout(() => {
               cross = true;
+              setTimeout(() => {
+    audio.play()
+}, 500);
           }, 1000)};
+    document.getElementById("resetBtn").addEventListener("click", function () {
+        obstacle.classList.add('obsani');
+        reset.style.display = 'none';
+        green1.style.left = 60+"px";
+        green1.style.bottom = 210+"px";
+        score=0;
+        updateScore(score);
+    });
       },100);
       function updateScore(score) {
           scoreCont.innerHTML="Your Score : "+score;
-      };</script>
+      };
+    
+      </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
