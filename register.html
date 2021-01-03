@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <style>
+      .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.image-previewer{
+    margin: auto;
+    margin-top: 5px;
+}
+#img-upload{
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+    </style>
+
+    <title>Register</title>
+  </head>
+  <body>
+
+
+ 
+
+
+
+<div class="container">
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupform">
+  Sign up
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="signupform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Register Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body py-0">
+        
+
+        <div class="row justify-content-center">
+          <div class="px-0 col-md-12">
+          <div class="card">
+          <article class="card-body">
+          <form>
+
+
+            <div  class="form-group my-0">
+              <label>Upload Image</label>
+              <div class="input-group">
+                  <span class="input-group-btn">
+                      <span class="btn btn-primary btn-file">
+                          Browse... <input type="file" accept="image/*" id="imgInp">
+                      </span>
+                  </span>
+                  <input type="text" class="form-control" readonly>
+              </div>
+              <div class="image-previewer col-md-5"><img id='img-upload'/></div>
+          </div>
+
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>First name </label>   
+                  <input type="text" class="form-control" placeholder="">
+              </div> <!-- form-group end.// -->
+              <div class="col form-group">
+                <label>Last name</label>
+                  <input type="text" class="form-control" placeholder=" ">
+              </div> <!-- form-group end.// -->
+            </div> <!-- form-row end.// -->
+            
+            <div class="form-group">
+              <label>User name</label>
+              <input type="name" class="form-control" placeholder="">
+              <small class="form-text text-muted">The user name must be unique.</small>
+            </div> <!-- form-group end.// -->
+          
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" class="form-control" placeholder="">
+              <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div> <!-- form-group end.// -->
+          
+            <div class="form-group">
+              <label>Enter your password</label>
+                <input class="form-control" type="password">
+                <small class="form-text text-muted">Your password will remain encrypted.</small>
+            </div> <!-- form-group end.// -->
+          
+            <div class="form-group">
+              <label>Confirm your password</label>
+                <input class="form-control" type="password">
+                <small class="form-text text-muted">Please retype your password.</small>
+            </div> <!-- form-group end.// -->
+          
+            <div class="g-recaptcha brochure__form__captcha mb-2" data-sitekey=""></div>
+          
+              <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+                  <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our Terms of use and Privacy Policy.</small>  
+              </div> <!-- form-group// -->      
+                                                      
+          </form>
+          </article> <!-- card-body end .// -->
+          <div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
+          </div> <!-- card.// -->
+          </div> <!-- col.//-->
+          
+          </div> <!-- row.//-->
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+  </div> 
+  <!--container end.//-->
+  
+
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+     $(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+      </script>
+      <script src="https://www.google.com/recaptcha/api.js"></script>
+  </body>
+</html>
