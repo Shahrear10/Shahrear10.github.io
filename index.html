@@ -3,41 +3,95 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <title>My projects</title>
         <link rel="shortcut icon" type="image/x-icon" href="projects.jpg">
     <style>
-#containerId{
-    margin-top: 40px;
+body{
+    margin-top: 35px;
+    background-color: whitesmoke;
 }
+.alert{
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    color: #c00;
+    text-decoration: none;
+ }
+ a:hover{
+     text-decoration: underline;
+ }
 
     </style>
   </head>
   <body>
  <div id="containerId" class="container">
-     <p><b>Project 1 :</b> <a target="_blank" href="clock.html">Analog clock with HTML , CSS , JavaScript.</a></p>
-     <p><b>Project 2 :</b> <a target="_blank" href="dynamicProgressbar.html">Dynamic Progressbar with HTML , CSS , JQuery , Bootstrap.</a></p>
-     <p><b>Project 3 :</b> <a target="_blank" href="https://tbb1.github.io/">Static website with HTML , CSS , JavaScript for my friends.</a></p>
-     <p><b>Project 4 :</b> <a target="_blank" href="stopwatch.html">Stopwatch with HTML , CSS, JavaScript and Bootstrap.</a></p>
-     <p><b>Project 5 :</b> <a target="_blank" href="tipcalc.html">Simple tip calculator with HTML , CSS, JavaScript.</a></p>
-     <p><b>Project 6 :</b> <a target="_blank" href="game.html">SpaceGame with HTML , CSS, JavaScript.</a></p>
-     <p><b>Project 7 :</b> <a target="_blank" href="calculator.html">Simple calculator with HTML , CSS, JavaScript and Bootstrap.</a></p>
-     <p><b>Project 8 :</b> <a target="_blank" href="d_clock.html">Digital clock with HTML , CSS, JavaScript and Bootstrap.</a></p>
-     <p><b>Project 9 :</b> <a target="_blank" href="http://peace-association.000webhostapp.com/forum/index">CodoTalks forum with HTML , CSS, Bootstrap and PHP.</a></p>
-     <p><b>Project 10 :</b> <a target="_blank" href="http://peace-association.000webhostapp.com/notes/index">Notes app with HTML , CSS, Bootstrap and PHP.</a></p>
-    <p><b>Project 11 :</b> <a target="_blank" href="https://tbb7.000webhostapp.com/tbb">TBB for my friends with HTML , CSS, Bootstrap and PHP.</a></p>
-    <p><b>Project 12 :</b> <a target="_blank" href="http://peace-association.000webhostapp.com/">Peace-Association with HTML , CSS, JS, Bootstrap and PHP.</a></p>
-    <p><b>Project 13 :</b> <a target="_blank" href="register.html">Signup page design with HTML , CSS, JS, Bootstrap.</a></p>
-   <p><b>Project 14 :</b> <a target="_blank" href="/musicplayer">Music Player with HTML , CSS, JS.</a></p>
 
+    <div class="alert alert-light" role="alert">
+        Project 1 : <a target="_blank" href="clock.html">Static Analog Clock.</a>
     </div>
+
+    <div class="alert alert-secondary" role="alert">
+        Project 2 : <a target="_blank" href="dynamicProgressbar.html">Dynamic Progressbar.</a>
+    </div>
+    
+    <div class="alert alert-light" role="alert">
+        Project 3 : <a target="_blank" href="https://tbb1.github.io/">Static Website For My Friends.</a>
+    </div>
+    
+    <div class="alert alert-secondary" role="alert">
+        Project 4 : <a target="_blank" href="stopwatch.html">Static Stopwatch.</a>
+    </div>
+    
+    <div class="alert alert-light" role="alert">
+        Project 5 : <a target="_blank" href="tipcalc.html">Simple Tip Calculator.</a>
+    </div>
+    
+    <div class="alert alert-secondary" role="alert">
+        Project 6 : <a target="_blank" href="game.html">Unlimited SpaceGame.</a>
+    </div>
+    
+    <div class="alert alert-light" role="alert">
+        Project 7 : <a target="_blank" href="calculator.html">Simple Calculator.</a>
+    </div>
+    
+    <div class="alert alert-secondary" role="alert">
+        Project 8 : <a target="_blank" href="d_clock.html">Digital Clock.</a>
+    </div>
+    
+    <div class="alert alert-light" role="alert">
+        Project 9 : <a target="_blank" href="http://peace-association.000webhostapp.com/forum/index">CodoTalks.</a>
+    </div>
+    
+    <div class="alert alert-secondary" role="alert">
+        Project 10 : <a target="_blank" href="http://peace-association.000webhostapp.com/notes/index">Notes App.</a>
+    </div>
+    
+    <div class="alert alert-light" role="alert">
+        Project 11 : <a target="_blank" href="https://tbb7.000webhostapp.com/tbb">TBB For My Friends.</a>
+    </div>
+    
+    <div class="alert alert-secondary" role="alert">
+        Project 12 : <a target="_blank" href="http://peace-association.000webhostapp.com/">Peace-Association.</a>
+    </div>
+    
+    <div class="alert alert-light" role="alert">
+        Project 13 : <a target="_blank" href="register.html">Signup Page Design.</a>
+    </div>
+    
+    <div class="alert alert-secondary" role="alert">
+        Project 14 : <a target="_blank" href="/musicplayer">Static Music Player.</a>
+    </div>
+    
+
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
   </body>
 </html>
