@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/611eb29af6.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Music Player</title>
 </head>
 <body>
     
@@ -18,6 +18,21 @@
                 <img src="images/1.jpg" alt="">
             </div>
             <audio src="songs/1.mp3"></audio>
+
+            <!-- progressbar -->
+            <div id="progress_container" class="progressbar_container">
+                <div class="progress_duration_meter">
+                    <div id="current_time">
+                        0:00
+                    </div>
+                    <div id="duration">6:38</div>
+                </div>
+                <div class="progress_div" id="progress_div">
+                    <div class="progress" id="progress">
+
+                    </div>
+                </div>
+            </div>
 
             <!-- controllers -->
             <div class="music_controls">
@@ -36,7 +51,10 @@
         const next = document.getElementById("next");
         const music = document.querySelector("audio");
         const image = document.querySelector("img");
-
+        let progress = document.getElementById("progress");
+        let total_duration = document.getElementById("duration");
+        let current_time = document.getElementById("current_time");
+        const progress_div = document.getElementById("progress_div")
         const songs = [
             {
                 name: "1",
@@ -70,10 +88,11 @@
             },
             {
                 name: "7",
-                title: "Tajdar-e-Haram",
+                title: "Tajdar-E-Haram",
                 artist: "Atif Aslam"
             },
         ]
+
 
         let isPlaying = false;
 
@@ -116,6 +135,46 @@
             loadSong(songs[songIndex]);
             playMusic();
         }
+
+        // progress js work
+        music.addEventListener("timeupdate", (event)=>{
+            // console.log(event);
+            const {currentTime, duration} = event.srcElement;
+            let progress_time = (currentTime/duration) * 100;
+            progress.style.width =`${progress_time}%`;
+
+            // music duration update
+            let min_duration = Math.floor(duration/60);
+            let sec_duration = Math.floor(duration%60);
+            if (sec_duration<10) {
+                sec_duration = `0${sec_duration}`;                  
+            }
+            let tot_duration = `${min_duration}:${sec_duration}`;
+            if (duration) {
+                total_duration.textContent = `${tot_duration}`;                
+            }
+
+            // music current duration update
+            let min_currentTime = Math.floor(currentTime/60);
+            let sec_currentTime = Math.floor(currentTime%60);
+            if (sec_currentTime<10) {
+                sec_currentTime = `0${sec_currentTime}`;                  
+            }
+            let tot_currentTime = `${min_currentTime}:${sec_currentTime}`;
+            current_time.textContent = `${tot_currentTime}`;                
+
+        });
+
+        // progress onclick function
+        progress_div.addEventListener("click", (event)=>{
+            const {currentTime, duration} = music;
+            let move_progress = (event.offsetX / event.srcElement.clientWidth) * duration;
+            music.currentTime = move_progress
+        });
+
+        // call next song
+        music.addEventListener('ended', nextSong);
+
         next.addEventListener('click', nextSong);
         prev.addEventListener('click', prevSong);
         
